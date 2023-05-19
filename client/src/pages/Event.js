@@ -69,15 +69,20 @@ const Event = () => {
                 // maxWidth: "60vw",
             }}>
             <MDBCard>
-                {/* <MDBCarousel showControls showIndicators dark fade>
-                    {event.img.map((item, index) => (
-                        <MDBCarouselItem
-                            key={index}
-                            className='w-100 d-block'
-                            src={item}
-                        />
-                    ))}
-                </MDBCarousel> */}
+               
+
+                <figure className='figure'>
+                    <img
+                        src="./images/past/img_01a.jpg"
+                        className='figure-img img-fluid rounded shadow-3 mb-3'
+                        alt='...'
+                    />
+                    <figcaption className='figure-caption'>blabla</figcaption>
+                </figure>
+
+
+
+
                 <MDBCardBody>
                     <MDBCardTitle className="text-start">{event.title}</MDBCardTitle>
                     <MDBCardText className="text-start">{event.date}</MDBCardText>
@@ -95,7 +100,7 @@ const Event = () => {
                                 rows={2}
                             >
                             </MDBTextArea>
-                            <MDBBtn style={{ width: "100%" }} className="mt-2" type="submit" onClick={submitComment}>
+                            <MDBBtn style={{ width: "100%", backgroundColor: "#606080" }} className="mt-2" type="submit" onClick={submitComment}>
                                 {loading && (
                                     <MDBSpinner
                                         size="sm"

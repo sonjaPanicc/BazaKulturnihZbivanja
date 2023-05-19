@@ -69,6 +69,9 @@ const Comments = () => {
         <MDBContainer className="md">
             <MDBRow className="mb-3 mt-2">
                 <h5>Comments:</h5>
+                {comments.length === 0 && (
+                    <p> Sadly, there are no comments for this event yet :( </p>
+                )}
                 <MDBContainer>
                     {comments.map((item) => (
                         <div key={item._id}>

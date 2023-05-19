@@ -53,9 +53,9 @@ const Home = () => {
             </MDBContainer>
 
             {user?.result?._id ? (
-                <MDBBtn href="/vote">Vote for the next upcoming event</MDBBtn>
+                <MDBBtn style={{ backgroundColor: "#606080" }} href="/vote">Vote for the next upcoming event</MDBBtn>
             ) : (
-                <MDBBtn href="/register">Become a member to vote for the next upcoming event</MDBBtn>
+                <MDBBtn style={{ backgroundColor: "#606080" }} href="/register">Become a member to vote for the next upcoming event</MDBBtn>
             )}
 
 

@@ -31,12 +31,12 @@ const CardEvent = ({ id, title, titleImg, date, desc, upToVote }) => {
   return (
 
     <MDBCardGroup className="hover-shadow hover-zoom">
-      <MDBCard className="h-100 mt-2 d-sm-flex" style={{ maxWidth: "20rem", backgroundColor: "#d4d4da" }}>
+      <MDBCard className="h-100 mt-2 d-sm-flex hover-shadow hover-zoom" style={{ backgroundColor: "#d4d4da" }}>
         <MDBCardImage
           src={titleImg}
           alt={title}
           position="top"
-          style={{ maxWidth: "100%" }}
+          // style={{ maxWidth: "100%" }}
         />
         <MDBCardBody>
           <MDBCardTitle className="text-start">{title}</MDBCardTitle>

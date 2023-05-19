@@ -61,12 +61,13 @@ const Footer = () => {
                             </p>
                         </MDBCol>
                         <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-4">
-                            <div style={{ border: "1px solid #d4d4da" }}> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d707.5210280784173!2d20.
+                            <div style={{ border: "1px solid #d4d4da" }}>
+                                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d707.5210280784173!2d20.
             469758669666785!3d44.81985104947321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
             1!3m3!1m2!1s0x475a7ab7a0ef3d71%3A0xcc71412c3d14eab5!2sVenizelosova%2034%2C%20Beograd
             !5e0!3m2!1sen!2srs!4v1683358199796!5m2!1sen!2srs"
-                                width="200" height="200" loading="lazy">
-                            </iframe>
+                                    width="200" height="200" loading="lazy">
+                                </iframe> */}
                             </div>
                         </MDBCol>
                     </MDBRow>

@@ -25,23 +25,18 @@ export const postComment = async (req, res) => {
 export const editComment = async (req, res) => {
 
     const { commentId, comment } = req.body;
-    
-    console.log(comment);
+
     try {
-     
         const updatedComment = await Post.findByIdAndUpdate(
             commentId,
-            { comment: comment}
+            { comment: comment }
         );
 
-        console.log(updatedComment);
         res.status(201).json(updatedComment);
     } catch (error) {
         res.status(404).json({ message: "Something went wrong" });
     }
 };
-
-
 
 export const deleteComment = async (req, res) => {
 

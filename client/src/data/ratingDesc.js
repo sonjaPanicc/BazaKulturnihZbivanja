@@ -1,6 +1,10 @@
 const ratingDesc = [
 
     {
+        rating: 0,
+        desc: "Sadly, no one rated this event yet :(",
+    },
+    {
         rating: 1,
         desc: "Very boring, I left after 10 minutes",
     },

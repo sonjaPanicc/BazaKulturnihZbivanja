@@ -83,6 +83,19 @@ const eventsData = [
         img: [],
         upToVote: true,
     },
+    {
+        id: 8,
+        title: "Event 8",
+        titleImg: "/images/title/img_03.jpg",
+        date: "2/25/2023",
+        desc: "Kako znaš da je pravo vreme za tetovažu? 🤨 Ne bismo rekli da postoji jedinstveni odgovor na ovo pitanje, ali ako ove subote 25.02. dođeš u Bazu, očekuje te celodnevni događaj posvećen baš ovoj mističnoj umetnosti 🫢 Fleš je dizajn tattoo umetnika, odnosno crtež koji je tvoj potencijalni novi saputnik na koži. Celu izložbu posvećujemo upravo njima i pozivamo te da pronađeš svoj idealni fleš! Kada ga pronađeš, u Live Tattoo stanici ćeš imati priliku i da ga oživiš! Nova šara na koži može baš tada i da se realizuje u posebnoj prostoriji koja će biti specijalno opremljena za ovu priliku.‼️Da ne zaboravimo, celog tog dana će fleševi imati posebnu PROMO cenu. Njih ne moraš odraditi tog dana, već dogovor o terminu prepuštamo tebi i tvom izabranom umetniku. Njihovi stilovi su jedinstveni, linije besprekorne, a stručnost apsolutna:@stefan_pinaink @snowblack.tattoo @molly_child @molly_sandra__@savasava.tattoo",
+        img: [
+            "/images/past/prod1.png",
+            "/images/past/prod2.png",
+            "/images/past/prod3.png"
+        ],
+        upToVote: false,
+    },
 ];
 
 export default eventsData;

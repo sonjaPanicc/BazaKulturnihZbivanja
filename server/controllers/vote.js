@@ -7,12 +7,11 @@ export const sendVote = async (req, res) => {
     const userId = req.userId;
 
     try {
-
         const userVoted = await Vote.findOne({ voterIds: userId });
         const voter = await User.findById(userId);
 
         if (userVoted) {
-            return res.status(400).json({ message: `${voter.name}, you already voted` });
+            return res.status(400).json({ message: `Sorry, ${voter.name}, you already voted :(` });
         }
 
         const eventVote = await Vote.findOne({ eventId: id });
@@ -63,15 +62,14 @@ export const sendRating = async (req, res) => {
     const id = req.body.eventId;
 
     try {
-
         const eventRating = await Vote.findOne({ eventId: id });
 
-        if (!eventRating && typeof (id) == "number") {
+        if (!eventRating) {
             const newRating = new Vote({
                 ...ratingData,
             });
             await newRating.save();
-            res.status(201).json(newRating);
+            return res.status(201).json(newRating);
         }
 
         const rating = eventRating.rating;
@@ -95,6 +93,11 @@ export const getRatingOnEvent = async (req, res) => {
 
     try {
         const ratings = await Vote.findOne({ eventId: id });
+
+        if (!ratings) {
+            const maxRating = 0;
+            return res.status(200).json(maxRating);
+        }
 
         const ratingCount = {};
         ratings.rating.forEach((item) => {

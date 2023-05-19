@@ -55,25 +55,25 @@ const Rating = () => {
         dispatch(getRatingOnEvent(id));
     }, [id]);
 
-    const submitRating = (e) => {
-
-        e.preventDefault();
-        dispatch(sendRating({ ratingData, toast }));
-
-        setRatingDone(true);
-        window.localStorage.setItem(`RATING_DONE_FOR_EVENT_${id}`, true);
-        setRateModal(!rateModal);
-    };
-
     const onRatingChange = (e) => {
 
         let { name, value } = e.target;
         setRatingData({ eventId: id, [name]: value });
     };
 
+    const submitRating = (e) => {
+
+        e.preventDefault();
+        dispatch(sendRating({ ratingData, toast }));
+        dispatch(getRatingOnEvent(id));
+        setRatingDone(true);
+        window.localStorage.setItem(`RATING_DONE_FOR_EVENT_${id}`, true);
+        setRateModal(!rateModal);
+    };
+
     return (
         <>
-            <MDBBtn
+            <MDBBtn style={{ backgroundColor: "#606080" }}
                 disabled={ratingDone}
                 onClick={toggleShow}
             >
@@ -84,17 +84,19 @@ const Rating = () => {
                     <MDBModalContent>
                         <MDBModalHeader>
                             <MDBModalTitle>Rate {event.title} !</MDBModalTitle>
-                            <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+                            <MDBBtn className='btn-close' color="#606080" onClick={toggleShow}></MDBBtn>
                         </MDBModalHeader>
                         <MDBModalBody>
                             <h6>Your feedback is important to us</h6>
                             <MDBRadio
+                                class="form-check-input"
                                 label="Very boring, I left after 10 minutes"
                                 value={1}
                                 name="rating"
                                 onChange={onRatingChange}
                             />
                             <MDBRadio
+                            class="form-check-input"
                                 label="Boring -.-"
                                 value={2}
                                 name="rating"
@@ -121,10 +123,10 @@ const Rating = () => {
                             <p>If you're a member, feel free to leave us a comment bellow.</p>
                         </MDBModalBody>
                         <MDBModalFooter>
-                            <MDBBtn color='secondary' onClick={toggleShow}>
+                            <MDBBtn color="#606080" onClick={toggleShow}>
                                 Close
                             </MDBBtn>
-                            <MDBBtn
+                            <MDBBtn style={{ backgroundColor: "#606080" }}
                                 onClick={submitRating}
                             >
                                 Submit your feedback
