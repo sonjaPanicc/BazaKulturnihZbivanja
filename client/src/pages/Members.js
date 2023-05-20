@@ -3,10 +3,15 @@ import {
     MDBCol,
     MDBContainer,
     MDBRow,
-    MDBTypography
+    MDBTypography,
+    MDBTable,
+    MDBTableHead,
+    MDBTableBody,
+    MDBBadge,
 } from "mdb-react-ui-kit";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMembers } from "../redux/features/authSlice";
+import BackToTopBtn from "../components/BackToTopBtn";
 
 const Members = () => {
 
@@ -20,23 +25,41 @@ const Members = () => {
     return (
 
         <div
-            style={{
-                margin: "auto",
+            style={{            
                 padding: "15px",
-                maxWidth: "1000px",
-                alignContent: "center",
-            }}
+                          }}
         >
             <MDBTypography className="text-center mb-0" tag="h2">
                 List of members
             </MDBTypography>
-            
-                <MDBRow>
+            <MDBTable 
+            style={{
+                margin:"auto", 
+                width: "800px"
+            }}
+            >               
+                <MDBTableBody>
                     {members.map((item) => (
-                        <MDBRow key={item._id} className="row-cols-1 row-cols-md-3 g-2"> {item.name} </MDBRow>
+                        <tr key={item._id}>
+                            <td>
+                                <div className='d-flex align-items-center'>
+                                    <div className='ms-3'>
+                                        <p className='fw-bold mb-1'>{item.name}</p>
+                                        <p className='text-muted mb-0'>{item.email}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            {/* <td>
+                                <p className='text-muted mb-0'>{item.email}</p>
+                            </td> */}
+                            <td>
+                                <p className='fw-normal mb-1'>Member</p>
+                            </td>
+                        </tr>
                     ))}
-                </MDBRow>
-           
+                </MDBTableBody>
+            </MDBTable>
+            <BackToTopBtn></BackToTopBtn>
         </div>
     );
 };

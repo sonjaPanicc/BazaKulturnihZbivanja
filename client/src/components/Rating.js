@@ -76,6 +76,7 @@ const Rating = () => {
             <MDBBtn style={{ backgroundColor: "#606080" }}
                 disabled={ratingDone}
                 onClick={toggleShow}
+                tabIndex='-1'
             >
                 Did you go to this event? Rate it!
             </MDBBtn>

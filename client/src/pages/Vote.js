@@ -17,6 +17,7 @@ import { sendVote } from "../redux/features/postsSlice";
 import CardEvent from "../components/CardEvent";
 import eventsData from "../data/eventsData";
 import { getAllVotes } from "../redux/features/postsSlice";
+import BackToTopBtn from "../components/BackToTopBtn";
 
 const Vote = () => {
 
@@ -67,7 +68,7 @@ const Vote = () => {
                         </div>
                         ))}
                 </MDBRow>
-                <MDBBtn
+                <MDBBtn style={{ backgroundColor: "#606080" }}
                     onClick={submitVote}>
                     {loading && (
                         <MDBSpinner
@@ -94,6 +95,7 @@ const Vote = () => {
                         ))}
                 </MDBContainer>
             </MDBContainer>
+            <BackToTopBtn></BackToTopBtn>
         </div>
     );
 };

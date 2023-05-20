@@ -19,6 +19,7 @@ import {
 import Rating from "../components/Rating";
 import Comments from "../components/Comments";
 import eventsData from "../data/eventsData";
+import BackToTopBtn from "../components/BackToTopBtn";
 
 const initialState = {
     eventId: "",
@@ -60,64 +61,67 @@ const Event = () => {
 
     return (
 
-        <MDBContainer className="md"
-            style={{
-                margin: "auto",
-                alignContent: "center",
-                marginTop: "120px",
-                width: "90vw",
-                // maxWidth: "60vw",
-            }}>
-            <MDBCard>
-               
-
-                <figure className='figure'>
-                    <img
-                        src="./images/past/img_01a.jpg"
-                        className='figure-img img-fluid rounded shadow-3 mb-3'
-                        alt='...'
-                    />
-                    <figcaption className='figure-caption'>blabla</figcaption>
-                </figure>
+        <div>
+            <MDBContainer className="md"
+                style={{
+                    margin: "auto",
+                    alignContent: "center",
+                    marginTop: "120px",
+                    width: "80vw",
+                    // maxWidth: "60vw",
+                }}>
+                <MDBCard>
 
 
+                    <figure className='figure'>
+                        <img
+                            src="./images/past/img_01a.jpg"
+                            className='figure-img img-fluid rounded shadow-3 mb-3'
+                            alt='...'
+                        />
+                        <figcaption className='figure-caption'>blabla</figcaption>
+                    </figure>
 
 
-                <MDBCardBody>
-                    <MDBCardTitle className="text-start">{event.title}</MDBCardTitle>
-                    <MDBCardText className="text-start">{event.date}</MDBCardText>
-                    <MDBCardText className="text-start">{event.desc}</MDBCardText>
-                    <Rating></Rating>
-                    <Comments></Comments>
-                    {user?.result?._id ? (
-                        <div>
-                            <MDBTextArea
-                                label="Leave a comment"
-                                type="text"
-                                value={comment}
-                                name="comment"
-                                onChange={onCommentChange}
-                                rows={2}
-                            >
-                            </MDBTextArea>
-                            <MDBBtn style={{ width: "100%", backgroundColor: "#606080" }} className="mt-2" type="submit" onClick={submitComment}>
-                                {loading && (
-                                    <MDBSpinner
-                                        size="sm"
-                                        role="status"
-                                        tag="span"
-                                        className="me-2"
-                                    />
-                                )}
-                                Post a comment
-                            </MDBBtn>
-                        </div>) : (
-                        <MDBBtn href="/register">Become a member to leave comments!</MDBBtn>
-                    )}
 
-                </MDBCardBody>
-            </MDBCard>
-        </MDBContainer>
+
+                    <MDBCardBody>
+                        <MDBCardTitle className="text-start">{event.title}</MDBCardTitle>
+                        <MDBCardText className="text-start">{event.date}</MDBCardText>
+                        <MDBCardText className="text-start">{event.desc}</MDBCardText>
+                        <Rating></Rating>
+                        <Comments></Comments>
+                        {user?.result?._id ? (
+                            <div>
+                                <MDBTextArea
+                                    label="Leave a comment"
+                                    type="text"
+                                    value={comment}
+                                    name="comment"
+                                    onChange={onCommentChange}
+                                    rows={2}
+                                >
+                                </MDBTextArea>
+                                <MDBBtn style={{ width: "100%", backgroundColor: "#606080" }} className="mt-2" type="submit" onClick={submitComment}>
+                                    {loading && (
+                                        <MDBSpinner
+                                            size="sm"
+                                            role="status"
+                                            tag="span"
+                                            className="me-2"
+                                        />
+                                    )}
+                                    Post a comment
+                                </MDBBtn>
+                            </div>) : (
+                            <MDBBtn href="/register">Become a member to leave comments!</MDBBtn>
+                        )}
+
+                    </MDBCardBody>
+                </MDBCard>
+            </MDBContainer>
+            <BackToTopBtn></BackToTopBtn>
+        </div>
     );
 };
 

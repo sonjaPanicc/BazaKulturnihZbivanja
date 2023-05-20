@@ -66,72 +66,101 @@ const Comments = () => {
 
     return (
 
-        <MDBContainer className="md">
-            <MDBRow className="mb-3 mt-2">
-                <h5>Comments:</h5>
-                {comments.length === 0 && (
-                    <p> Sadly, there are no comments for this event yet :( </p>
-                )}
-                <MDBContainer>
-                    {comments.map((item) => (
-                        <div key={item._id}>
-                            <MDBRow>{item.creator} :</MDBRow>
-                            <MDBRow>
-                                {editData.edited && editData.commentId === item._id ? (
-                                    <div>
-                                        <MDBTextArea
-                                            type="text"
-                                            value={editData.comment}
-                                            name="comment"
-                                            onChange={onCommentChange}
-                                            rows={1}
-                                        >
-                                        </MDBTextArea>
-                                        <MDBBtn style={{ width: "100%" }} className="mt-2" type="submit" onClick={submitEdit}>
-                                            {loading && (
-                                                <MDBSpinner
-                                                    size="sm"
-                                                    role="status"
-                                                    tag="span"
-                                                    className="me-2"
-                                                />
-                                            )}
-                                            Edit comment
-                                        </MDBBtn>
-                                    </div>
-                                ) : (
-                                    <MDBCol>{item.comment}</MDBCol>
-                                )}
-                                {user?.result?._id === item.creatorId && !editData.edited && (
-                                    <div>
-                                        <MDBBtn className="mt-1" tag="a" color="none">
-                                            <MDBIcon
-                                                fas
-                                                icon="edit"
-                                                style={{ color: "#55acee", marginLeft: "10px" }}
-                                                size="lg"
-                                                onClick={() => handleEdit(item._id, item.comment)}
-                                            />
-                                        </MDBBtn>
-                                        <MDBBtn className="mt-1" tag="a" color="none">
-                                            <MDBIcon
-                                                fas
-                                                icon="trash"
-                                                style={{ color: "#dd4b39" }}
-                                                size="lg"
-                                                onClick={() => handleDelete(item._id)}
-                                            />
-                                        </MDBBtn>
-                                    </div>
-                                )}
-                            </MDBRow>
-                            <br />
-                        </div>
-                    ))
-                    }
-                </MDBContainer >
-            </MDBRow >
+        <MDBContainer className="mb-3 mt-2"
+            style={{
+                padding: "20px 40px",
+                backgroundColor: "#ece9e2",
+                borderRadius: "20px"
+
+            }}
+        >
+            <h5 style={{ marginBottom: "20px" }}>Comments:</h5>
+            {comments.length === 0 && (
+                <p> Sadly, there are no comments for this event yet :( </p>
+            )}
+
+            {comments.map((item) => (
+                <MDBContainer
+                    style={{
+                        marginBottom: "10px",
+
+                        border: "1px solid #606080",
+                        borderRadius:"10px"
+
+                    }} key={item._id}>
+                    <MDBRow style={{
+                        margin: "5px 0px",
+
+
+                    }}>{item.creator} :</MDBRow>
+                    <MDBRow>
+                        {editData.edited && editData.commentId === item._id ? (
+                            <div>
+                                <MDBTextArea
+                                    type="text"
+                                    value={editData.comment}
+                                    name="comment"
+                                    onChange={onCommentChange}
+                                    rows={2}
+                                >
+                                </MDBTextArea>
+                                <MDBBtn style={{ width: "70%", backgroundColor: "#606080" }} className="mt-2" type="submit"
+                                    onClick={submitEdit}>
+                                    {loading && (
+                                        <MDBSpinner
+                                            size="sm"
+                                            role="status"
+                                            tag="span"
+                                            className="me-2"
+                                        />
+                                    )}
+                                    Edit comment
+                                </MDBBtn>
+                                <MDBBtn style={{ width: "30%", color: "#606080", backgroundColor: "#000444" }}
+                                    onClick={() => setEditData(initialState)}>
+                                    Cancel
+                                </MDBBtn>
+                            </div>
+                        ) : (
+                            <MDBCol
+                                style={{
+                                    padding: "10px",
+                                    backgroundColor: "#ede8dd",
+                                    border: "1px solid #606080",
+                                    borderRadius: "10px"
+                                }}
+                            >
+                                {item.comment}</MDBCol>
+                        )}
+                        {user?.result?._id === item.creatorId && !editData.edited && (
+                            <div>
+                                <MDBBtn className="mt-1" tag="a" color="none">
+                                    <MDBIcon
+                                        fas
+                                        icon="edit"
+                                        style={{ color: "#606080", marginLeft: "10px" }}
+                                        size="lg"
+                                        onClick={() => handleEdit(item._id, item.comment)}
+                                    />
+                                </MDBBtn>
+                                <MDBBtn className="mt-1" tag="a" color="none">
+                                    <MDBIcon
+                                        fas
+                                        icon="trash"
+                                        style={{ color: "#dd4b39" }}
+                                        size="lg"
+                                        onClick={() => handleDelete(item._id)}
+                                    />
+                                </MDBBtn>
+                            </div>
+                        )}
+                    </MDBRow>
+                    {/* <br /> */}
+                </MDBContainer>
+            ))
+            }
         </MDBContainer >
+
     );
 };
 

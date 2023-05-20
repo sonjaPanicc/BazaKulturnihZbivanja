@@ -45,21 +45,21 @@ const Header = () => {
                         <MDBIcon icon="bars" fas />
                     </MDBNavbarToggler>
                     <MDBCollapse show={showNavbar} navbar>
-                        <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0">
+                        <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0" style={{ color: "#606080" }}>
                             {user?.result?._id && (
                                 <h5 style={{ marginRight: "30px", marginTop: "17px" }}>
                                     Logged in as: {user?.result?.name}
                                 </h5>
                             )}
                             <MDBNavbarItem>
-                                <MDBNavbarLink href="/">
+                                <MDBNavbarLink href="/" style={{ color: "#606080" }}>
                                     <p className="header-text">Home</p>
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
 
                             {user?.result?._id ? (
                                 <MDBNavbarItem>
-                                    <MDBNavbarLink href="/login">
+                                    <MDBNavbarLink href="/login" style={{ color: "#606080" }}>
                                         <p className="header-text" onClick={() => handleLogout()}>
                                             Logout
                                         </p>

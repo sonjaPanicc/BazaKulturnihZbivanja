@@ -12,6 +12,8 @@ const eventsData = [
             "/images/past/prod3.png"
         ],
         upToVote: false,
+        price: 500,
+        memberPrice: 350,
     },
    {
         id: 2,
@@ -25,6 +27,8 @@ const eventsData = [
             "/images/past/prod3.png"
         ],
         upToVote: false,
+        price: 500,
+        memberPrice: 350,
     },
     {
         id: 3,
@@ -38,6 +42,8 @@ const eventsData = [
             "/images/past/prod3.png"
         ],
         upToVote: false,
+        price: 500,
+        memberPrice: 350,
     },
     {
         id: 4,
@@ -51,6 +57,8 @@ const eventsData = [
             "/images/past/prod3.png"
         ],
         upToVote: false,
+        price: 500,
+        memberPrice: 400,
     },
     {
         id: 5,
@@ -64,6 +72,8 @@ const eventsData = [
             "/images/past/prod3.png"
         ],
         upToVote: false,
+        price: 450,
+        memberPrice: 350,
     },
     {
         id: 6,
@@ -73,6 +83,8 @@ const eventsData = [
         desc: "Opis eventa blafjadshasdjhdkjasdhjasdhkjasdhaskjdhaskjdhaskjdhasdkjhasdkj",
         img: [],
         upToVote: true,
+        price: 500,
+        memberPrice: 350,
     },
     {
         id: 7,
@@ -82,19 +94,23 @@ const eventsData = [
         desc: "Opis eventa blafjadshasdjhdkjasdhjasdhkjasdhaskjdhaskjdhaskjdhasdkjhasdkj",
         img: [],
         upToVote: true,
+        price: 500,
+        memberPrice: 350,
     },
     {
         id: 8,
         title: "Event 8",
         titleImg: "/images/title/img_03.jpg",
         date: "2/25/2023",
-        desc: "Kako znaš da je pravo vreme za tetovažu? 🤨 Ne bismo rekli da postoji jedinstveni odgovor na ovo pitanje, ali ako ove subote 25.02. dođeš u Bazu, očekuje te celodnevni događaj posvećen baš ovoj mističnoj umetnosti 🫢 Fleš je dizajn tattoo umetnika, odnosno crtež koji je tvoj potencijalni novi saputnik na koži. Celu izložbu posvećujemo upravo njima i pozivamo te da pronađeš svoj idealni fleš! Kada ga pronađeš, u Live Tattoo stanici ćeš imati priliku i da ga oživiš! Nova šara na koži može baš tada i da se realizuje u posebnoj prostoriji koja će biti specijalno opremljena za ovu priliku.‼️Da ne zaboravimo, celog tog dana će fleševi imati posebnu PROMO cenu. Njih ne moraš odraditi tog dana, već dogovor o terminu prepuštamo tebi i tvom izabranom umetniku. Njihovi stilovi su jedinstveni, linije besprekorne, a stručnost apsolutna:@stefan_pinaink @snowblack.tattoo @molly_child @molly_sandra__@savasava.tattoo",
+        desc: "Otvaranje druge po redu samostalne izložbe slika Nikolete Mihaljević 🖼️Slike su velikog formata, tehnike akril na platnu i biće izložene do 10. maja u Bazi Kulturnih Zbivanja.Otvaranje je 4. maja u 19h, a posetioci će moći da pogledaju slike sve do 10. maja tokom radnog vremena Baze.Nikoleta je završila Fakultet Primenjenih Umetnosti Univerziteta umetnosti u Beogradu 2008. godine.Radila je 11 godina kao grafički dizajner agencije media.com iz Beograda, a poslednje 3 godine se posvetila slikanju, pevanju, učenju, kao i radu na sebi i svojim emocijama.Izložba je prodajnog karaktera.",
         img: [
             "/images/past/prod1.png",
             "/images/past/prod2.png",
             "/images/past/prod3.png"
         ],
         upToVote: false,
+        price: 500,
+        memberPrice: 350,
     },
 ];
 

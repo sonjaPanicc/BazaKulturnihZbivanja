@@ -24,7 +24,7 @@ export const sendVote = async (req, res) => {
                 voteCount: 1,
             });
             await eventVote.save();
-            res.status(201).json(eventVote);
+            return res.status(201).json(eventVote);
         }
 
         const voters = eventVote.voters;

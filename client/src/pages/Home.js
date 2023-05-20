@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import eventsData from "../data/eventsData";
 import CardEvent from "../components/CardEvent";
 import radnoVreme from "../radnoVreme.jpg";
+import BackToTopBtn from "../components/BackToTopBtn";
 
 const Home = () => {
 
@@ -67,15 +68,16 @@ const Home = () => {
                         .map((item) =>
                         (<div key={item.id}>
                             <CardEvent  {...item}></CardEvent>
-                            <Link to={`/event/${item.id}`}>Read More</Link>
+                            <Link to={`/event/${item.id}`}>
+                                <p style={{ color: "#606080" }}>Read More...</p>
+                            </Link>
                         </div>
                         ))}
                 </MDBRow>
             </MDBContainer>
+            <BackToTopBtn></BackToTopBtn>
         </div>
-
     );
-
 };
 
 export default Home;
