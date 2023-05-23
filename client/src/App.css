@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -36,21 +36,20 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-
-
-
-body {
-  margin: 0;  
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+body,
+html {
+  margin: 0;
+  font-family: "Wix";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h2 {
+  color: #606080;
+  text-align: center;
+  padding: 30px;
+  font-family: "Wix";
 }
-
 

@@ -80,6 +80,7 @@ const Login = () => {
                 maxWidth: "450px",
                 alignContent: "center",
                 marginTop: "120px",
+                fontFamily: "Wix",
             }}
         >
             <MDBCard alignment="center">

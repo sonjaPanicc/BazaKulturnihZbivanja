@@ -26,7 +26,7 @@ const Header = () => {
     const { user } = useSelector((state) => ({ ...state.auth }));
 
     return (
-        <header>
+        <header style={{ fontFamily: "Wix" }}>
             <MDBNavbar sticky expand="lg">
                 <MDBContainer fluid>
                     <MDBNavbarBrand
@@ -77,10 +77,10 @@ const Header = () => {
                 </MDBContainer>
             </MDBNavbar>
             <div
-                className='p-5 text-center bg-image'
-                style={{ backgroundImage: `url(${logo})`, height: '600px' }}
+                className='p-5 bg-image'
+                style={{ width: "100%", margin: "auto", backgroundImage: `url(${logo})`, height: '400px' }}
             >
-                <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
+                <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
                 </div>
             </div>
         </header>

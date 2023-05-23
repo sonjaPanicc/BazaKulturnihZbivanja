@@ -5,15 +5,11 @@ import {
     MDBContainer,
     MDBRow,
     MDBSpinner,
-    MDBTypography,
-    MDBNavbarItem,
-    MDBNavbarLink,
 } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { sendVote } from "../redux/features/postsSlice";
-// import Timer from "../components/Timer";
 import CardEvent from "../components/CardEvent";
 import eventsData from "../data/eventsData";
 import { getAllVotes } from "../redux/features/postsSlice";
@@ -50,14 +46,12 @@ const Vote = () => {
                 padding: "15px",
                 maxWidth: "1000px",
                 alignContent: "center",
+                fontFamily: "Wix",
             }}
         >
 
             <h2>Vote for the next upcoming event!</h2>
 
-            <div>Voting closes in </div>
-
-            {/* <Timer></Timer> */}
             <MDBContainer>
                 <MDBRow className="row-cols-1 row-cols-md-3 g-2">
                     {eventsData.filter((item) => Date.parse(item.date) >= Date.now())

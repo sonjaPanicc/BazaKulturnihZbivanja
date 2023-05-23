@@ -1,13 +1,25 @@
-body {
+body,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Acme", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Acme";
+  src: local("Acme-Regular"),
+    url("./fonts/Acme-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Josefin";
+  src: local("JosefinSans-Regular"),
+    url("./fonts/JosefinSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Wix";
+  src: local("WixMadeforDisplay-Medium"),
+    url("./fonts/WixMadeforDisplay-Medium.ttf") format("truetype");
 }

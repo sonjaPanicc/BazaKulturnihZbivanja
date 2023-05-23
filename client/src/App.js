@@ -28,9 +28,7 @@ function App() {
     dispatch(setUser(user));
   }, []);
 
-
   return (
-
 
     <BrowserRouter>
       <div>

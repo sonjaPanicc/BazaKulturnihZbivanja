@@ -61,25 +61,23 @@ const Event = () => {
 
     return (
 
-        <div>
+        <div style={{ fontFamily: "Wix" }}>
             <MDBContainer className="md"
                 style={{
                     margin: "auto",
                     alignContent: "center",
                     marginTop: "120px",
-                    width: "80vw",
-                    // maxWidth: "60vw",
+                    width: "70vw",                   
                 }}>
                 <MDBCard>
 
 
                     <figure className='figure'>
                         <img
-                            src="./images/past/img_01a.jpg"
+                            src={`/images/past/img_01a.jpg`}
                             className='figure-img img-fluid rounded shadow-3 mb-3'
                             alt='...'
-                        />
-                        <figcaption className='figure-caption'>blabla</figcaption>
+                        />                      
                     </figure>
 
 

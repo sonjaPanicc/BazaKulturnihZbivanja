@@ -85,7 +85,7 @@ const Comments = () => {
                         marginBottom: "10px",
 
                         border: "1px solid #606080",
-                        borderRadius:"10px"
+                        borderRadius: "10px"
 
                     }} key={item._id}>
                     <MDBRow style={{

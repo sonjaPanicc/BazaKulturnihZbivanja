@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -14,8 +14,8 @@ import { setEventId } from "../redux/features/postsSlice";
 const CardEvent = ({ id, title, titleImg, date, desc, upToVote }) => {
 
   const excerpt = (str) => {
-    if (str.length > 200) {
-      str = str.substring(0, 200) + " ...";
+    if (str.length > 120) {
+      str = str.substring(0, 120) + " ...";
     }
     return str;
   };
@@ -30,13 +30,15 @@ const CardEvent = ({ id, title, titleImg, date, desc, upToVote }) => {
 
   return (
 
-    <MDBCardGroup className="hover-shadow hover-zoom">
+    <MDBCardGroup className="hover-shadow hover-zoom"
+      style={{
+        margin: "2%",
+      }}
+    >
       <MDBCard className="h-100 mt-2 d-sm-flex hover-shadow hover-zoom" style={{ backgroundColor: "#d4d4da" }}>
-        <MDBCardImage class="img-fluid"
+        <MDBCardImage className="img-fluid"
           src={titleImg}
           alt={title}
-          // position="center"          
-          style={{ maxWidth: "70%" }}
         />
         <MDBCardBody>
           <MDBCardTitle className="text-start">{title}</MDBCardTitle>

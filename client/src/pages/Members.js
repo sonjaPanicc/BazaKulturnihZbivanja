@@ -1,13 +1,7 @@
 import React, { useEffect } from "react";
 import {
-    MDBCol,
-    MDBContainer,
-    MDBRow,
-    MDBTypography,
     MDBTable,
-    MDBTableHead,
     MDBTableBody,
-    MDBBadge,
 } from "mdb-react-ui-kit";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMembers } from "../redux/features/authSlice";
@@ -24,20 +18,14 @@ const Members = () => {
 
     return (
 
-        <div
-            style={{            
-                padding: "15px",
-                          }}
-        >
-            <MDBTypography className="text-center mb-0" tag="h2">
-                List of members
-            </MDBTypography>
-            <MDBTable 
-            style={{
-                margin:"auto", 
-                width: "800px"
-            }}
-            >               
+        <div>
+            <h2>List of members</h2>
+            <MDBTable
+                style={{
+                    margin: "auto",
+                    width: "750px"
+                }}
+            >
                 <MDBTableBody>
                     {members.map((item) => (
                         <tr key={item._id}>
@@ -45,13 +33,12 @@ const Members = () => {
                                 <div className='d-flex align-items-center'>
                                     <div className='ms-3'>
                                         <p className='fw-bold mb-1'>{item.name}</p>
-                                        <p className='text-muted mb-0'>{item.email}</p>
                                     </div>
                                 </div>
                             </td>
-                            {/* <td>
+                            <td>
                                 <p className='text-muted mb-0'>{item.email}</p>
-                            </td> */}
+                            </td>
                             <td>
                                 <p className='fw-normal mb-1'>Member</p>
                             </td>
