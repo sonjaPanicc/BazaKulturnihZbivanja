@@ -68,13 +68,16 @@ const Comments = () => {
 
         <MDBContainer className="mb-3 mt-2"
             style={{
-                padding: "20px 40px",
+                padding: "20px 30px",
                 backgroundColor: "#ece9e2",
-                borderRadius: "20px"
-
+                borderRadius: "20px",
+                width: "80%",
             }}
         >
-            <h5 style={{ marginBottom: "20px" }}>Comments:</h5>
+            <h4 style={{ marginTop: "20px", marginBottom: "40px", borderBottom: "1px solid #606080", textAlign: "left" }}>
+                Comments:
+            </h4>
+
             {comments.length === 0 && (
                 <p> Sadly, there are no comments for this event yet :( </p>
             )}
@@ -82,16 +85,14 @@ const Comments = () => {
             {comments.map((item) => (
                 <MDBContainer
                     style={{
-                        marginBottom: "10px",
-
-                        border: "1px solid #606080",
+                        marginBottom: "20px",
+                        width: "90%",
+                        padding: "5px",
+                        backgroundColor: "#c8ccdf",
                         borderRadius: "10px"
-
                     }} key={item._id}>
                     <MDBRow style={{
                         margin: "5px 0px",
-
-
                     }}>{item.creator} :</MDBRow>
                     <MDBRow>
                         {editData.edited && editData.commentId === item._id ? (
@@ -116,7 +117,7 @@ const Comments = () => {
                                     )}
                                     Edit comment
                                 </MDBBtn>
-                                <MDBBtn style={{ width: "30%", color: "#606080", backgroundColor: "#000444" }}
+                                <MDBBtn style={{ width: "30%", color: "#606080", backgroundColor: "#eeeff4" }}
                                     onClick={() => setEditData(initialState)}>
                                     Cancel
                                 </MDBBtn>
@@ -125,29 +126,28 @@ const Comments = () => {
                             <MDBCol
                                 style={{
                                     padding: "10px",
-                                    backgroundColor: "#ede8dd",
-                                    border: "1px solid #606080",
+                                    backgroundColor: "#d5d8e4",
                                     borderRadius: "10px"
                                 }}
                             >
                                 {item.comment}</MDBCol>
                         )}
                         {user?.result?._id === item.creatorId && !editData.edited && (
-                            <div>
-                                <MDBBtn className="mt-1" tag="a" color="none">
+                            <div className="d-flex justify-content-end">
+                                <MDBBtn tag="a" color="none" style={{ margin: "10px 20px" }}>
                                     <MDBIcon
                                         fas
                                         icon="edit"
-                                        style={{ color: "#606080", marginLeft: "10px" }}
+                                        style={{ color: "#606080" }}
                                         size="lg"
                                         onClick={() => handleEdit(item._id, item.comment)}
                                     />
                                 </MDBBtn>
-                                <MDBBtn className="mt-1" tag="a" color="none">
+                                <MDBBtn tag="a" color="none" style={{ margin: "10px 20px" }}>
                                     <MDBIcon
                                         fas
                                         icon="trash"
-                                        style={{ color: "#dd4b39" }}
+                                        style={{ color: "#a25349" }}
                                         size="lg"
                                         onClick={() => handleDelete(item._id)}
                                     />
@@ -155,7 +155,6 @@ const Comments = () => {
                             </div>
                         )}
                     </MDBRow>
-                    {/* <br /> */}
                 </MDBContainer>
             ))
             }

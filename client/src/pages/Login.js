@@ -4,7 +4,7 @@ import {
     MDBCardBody,
     MDBInput,
     MDBCardFooter,
-    MDBValidation,
+    MDBRow,
     MDBBtn,
     MDBSpinner,
 } from "mdb-react-ui-kit";
@@ -73,20 +73,21 @@ const Login = () => {
     };
 
     return (
+
         <div
             style={{
                 margin: "auto",
                 padding: "15px",
                 maxWidth: "450px",
                 alignContent: "center",
-                marginTop: "120px",
+                marginTop: "30px",
                 fontFamily: "Wix",
             }}
         >
-            <MDBCard alignment="center">
+            <MDBCard alignment="center" style={{ paddingTop: "20px" }}>
                 <h5>Sign In</h5>
                 <MDBCardBody>
-                    <MDBValidation onSubmit={handleSubmit} noValidate className="row g-3">
+                    <MDBRow tag="form" onSubmit={handleSubmit} noValidate className="row g-3">
                         <div className="col-md-12">
                             <MDBInput
                                 label="Email"
@@ -94,8 +95,6 @@ const Login = () => {
                                 value={email}
                                 name="email"
                                 onChange={(e) => onInputChange(e, "emailError")}
-                                required
-                            // invalid
                             />
                             {emailError && (
                                 <div className="alert-primary">
@@ -110,8 +109,6 @@ const Login = () => {
                                 value={password}
                                 name="password"
                                 onChange={(e) => onInputChange(e, "passwordError")}
-                                required
-                            // invalid
                             />
                             {passwordError && (
                                 <div className="alert-primary">
@@ -120,7 +117,7 @@ const Login = () => {
                             )}
                         </div>
                         <div className="col-12">
-                            <MDBBtn style={{ width: "100%" }} className="mt-2">
+                            <MDBBtn style={{ width: "100%", backgroundColor: "#606080" }} className="mt-2">
                                 {loading && (
                                     <MDBSpinner
                                         size="sm"
@@ -132,10 +129,10 @@ const Login = () => {
                                 Login
                             </MDBBtn>
                         </div>
-                    </MDBValidation>
+                    </MDBRow>
                 </MDBCardBody>
                 <MDBCardFooter>
-                    <Link to="/register">
+                    <Link to={"/register"} style={{ color: "#606080" }}>
                         <p>Not a member yet?  Click here to sign up! </p>
                     </Link>
                 </MDBCardFooter>

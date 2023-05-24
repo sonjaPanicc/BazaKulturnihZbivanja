@@ -66,23 +66,18 @@ const Event = () => {
                 style={{
                     margin: "auto",
                     alignContent: "center",
-                    marginTop: "120px",
-                    width: "70vw",                   
+                    marginTop: "20px",
+                    width: "70%",
                 }}>
+                <figure className='figure'>
+                    <img
+                        src={`/images/title/img_${id}.jpg`}
+                        className='figure-img img-fluid rounded shadow-3 mb-3'
+                        style={{ height: "650px" }}
+                        alt='...'
+                    />
+                </figure>
                 <MDBCard>
-
-
-                    <figure className='figure'>
-                        <img
-                            src={`/images/past/img_01a.jpg`}
-                            className='figure-img img-fluid rounded shadow-3 mb-3'
-                            alt='...'
-                        />                      
-                    </figure>
-
-
-
-
                     <MDBCardBody>
                         <MDBCardTitle className="text-start">{event.title}</MDBCardTitle>
                         <MDBCardText className="text-start">{event.date}</MDBCardText>
@@ -90,7 +85,7 @@ const Event = () => {
                         <Rating></Rating>
                         <Comments></Comments>
                         {user?.result?._id ? (
-                            <div>
+                            <div style={{ width: "80%", margin: "auto" }}>
                                 <MDBTextArea
                                     label="Leave a comment"
                                     type="text"
@@ -100,7 +95,8 @@ const Event = () => {
                                     rows={2}
                                 >
                                 </MDBTextArea>
-                                <MDBBtn style={{ width: "100%", backgroundColor: "#606080" }} className="mt-2" type="submit" onClick={submitComment}>
+                                <MDBBtn style={{ width: "100%", backgroundColor: "#606080" }} className="mt-2" type="submit"
+                                    onClick={submitComment}>
                                     {loading && (
                                         <MDBSpinner
                                             size="sm"
@@ -112,9 +108,11 @@ const Event = () => {
                                     Post a comment
                                 </MDBBtn>
                             </div>) : (
-                            <MDBBtn href="/register">Become a member to leave comments!</MDBBtn>
+                            <div style={{ textAlign: "center" }}>
+                                <MDBBtn href="/register" style={{ backgroundColor: "#606080", width: "40%" }}>
+                                    Become a member to leave comments!</MDBBtn>
+                            </div>
                         )}
-
                     </MDBCardBody>
                 </MDBCard>
             </MDBContainer>

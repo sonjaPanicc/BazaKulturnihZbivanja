@@ -40,23 +40,26 @@ const Home = () => {
         if (e.target.value == 2023) {
             setCheckedYear({ ...checkedYear, checked2023: !checkedYear.checked2023 });
         }
-    }
+        if (!e.target.checked) {
+            setFiltered(filtered.filter((item) => item.monthDate.year != e.target.value));
+        }
+    };
 
-    const onFilterChange = (e) => {
-
-
-
+    const onFilterChange = (e, year) => {
 
         if (e.target.checked) {
 
-            
-            filtered.push(eventsData.filter((item) => item.id == e.target.value)[0]);
+            let monthEvents = eventsData.filter((item) => item.monthDate.month === e.target.value && item.monthDate.year === year)
+
+            monthEvents.forEach((item) => {
+                filtered.push(item);
+            })
             setFiltered(filtered);
 
         } else if (!e.target.checked) {
-            setFiltered(filtered.filter((item) => item.id != e.target.value));
+            setFiltered(filtered.filter((item) => item.monthDate.month !== e.target.value));
         }
-    }
+    };
 
     const filterCheck = (item) => {
 
@@ -67,28 +70,25 @@ const Home = () => {
         } else {
             return item;
         }
-    }
+    };
 
     console.log(eventsData.filter(filterCheck));
     console.log(filtered);
 
     return (
 
-
         <div
             style={{
                 margin: "auto",
-                padding: "15px",
+                padding: "50px 50px 0px 50px",
                 alignContent: "center",
                 fontFamily: "Wix"
             }}
         >
-
-            <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <h3>Dobro nam došli !</h3>
+            <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-top">
                 <MDBCol>
                     <img src={radnoVreme} style={{ height: "300px" }} alt=""></img>
-                    <p>Dobro nam došli! 🤗</p>
-
                 </MDBCol>
                 <MDBCol>
                     <p>Baza Kulturnih zbivanja pruža multidisciplinarna iskustva, ima za cilj da spoji različite vidove umetnosti na jednom mestu.</p>
@@ -102,7 +102,6 @@ const Home = () => {
             </MDBContainer>
 
             <h2>Upcoming events</h2>
-
             <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-top">
                 <MDBRow className="row-cols-1 row-cols-md-3 g-2">
                     {eventsData.filter((item) => Date.parse(item.date) >= Date.now())
@@ -111,22 +110,19 @@ const Home = () => {
                         .map((item) => (<CardEvent key={item.id} {...item}></CardEvent>))}
                 </MDBRow>
             </MDBContainer>
+
             <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-                <MDBRow
-                    style={{
-                        margin: "auto",
-                        marginTop: "20px",
-                        width: "40%",
-                        height: "50px",
-                    }}>
+                <MDBCol className="row-cols-1 row-cols-md-1 g-2">
                     {user?.result?._id ? (
-                        <MDBBtn
-                            style={{ backgroundColor: "#606080" }} href="/vote">Vote for the next upcoming event</MDBBtn>
+                        <Link to={"/vote"}>
+                            <h3> Vote for the next upcoming event <MDBIcon fas icon="vote-yea" /></h3>
+                        </Link>
                     ) : (
-                        <MDBBtn
-                            style={{ backgroundColor: "#606080" }} href="/register">Become a member to vote for the next upcoming event</MDBBtn>
+                        <Link to={"/register"}>
+                            <h3> Become a member to vote for the next upcoming event <MDBIcon fas icon="vote-yea" /></h3>
+                        </Link>
                     )}
-                </MDBRow>
+                </MDBCol>
             </MDBContainer>
 
             <h2>Past events</h2>
@@ -142,7 +138,7 @@ const Home = () => {
                         <MDBIcon fas icon="search" />
                     </span>
                 </div>
-                <MDBListGroup className="list-group-horizontal" light small>
+                <MDBListGroup className="list-group-horizontal">
                     <MDBListGroupItem>
                         <input
                             type="checkbox"
@@ -150,6 +146,29 @@ const Home = () => {
                             onChange={selectYear}
                         /> 2022
                     </MDBListGroupItem>
+                    {checkedYear.checked2022 && (
+                        <MDBListGroup light small>
+                            {eventsData
+                                .filter((item) => Date.parse(item.date) < Date.now())
+                                .filter((item) => item.monthDate.year === 2022)
+                                .filter((value, index, array) =>
+                                    index === array.findIndex((value2) =>
+                                        (value.monthDate.month === value2.monthDate.month && value.monthDate.year === value2.monthDate.year)))
+                                .map((item) => (
+                                    <MDBListGroupItem key={item.id}>
+                                        <input
+                                            type="checkbox"
+                                            value={item.monthDate.month}
+                                            onChange={(e) => onFilterChange(e, 2022)}
+                                        />
+                                        {item.monthDate.month} {item.monthDate.year}
+                                    </MDBListGroupItem>
+                                ))
+                            }
+                        </MDBListGroup>
+                    )}
+                </MDBListGroup>
+                <MDBListGroup className="list-group-horizontal">
                     <MDBListGroupItem>
                         <input
                             type="checkbox"
@@ -157,76 +176,42 @@ const Home = () => {
                             onChange={selectYear}
                         /> 2023
                     </MDBListGroupItem>
+                    {checkedYear.checked2023 && (
+                        <MDBListGroup light small>
+                            {eventsData
+                                .filter((item) => Date.parse(item.date) < Date.now())
+                                .filter((item) => item.monthDate.year === 2023)
+                                .filter((value, index, array) =>
+                                    index === array.findIndex((value2) =>
+                                        (value.monthDate.month === value2.monthDate.month && value.monthDate.year === value2.monthDate.year)))
+                                .map((item) => (
+                                    <MDBListGroupItem key={item.id}>
+                                        <input
+                                            type="checkbox"
+                                            value={item.monthDate.month}
+                                            onChange={(e) => onFilterChange(e, 2023)}
+                                        />
+                                        {item.monthDate.month} {item.monthDate.year}
+                                    </MDBListGroupItem>
+                                ))
+                            }
+                        </MDBListGroup>
+                    )}
                 </MDBListGroup>
             </MDBContainer>
-
-            {checkedYear.checked2022 && (
-                <MDBListGroup light small>
-                    {eventsData
-                        .filter((item) => Date.parse(item.date) < Date.now())
-                        .filter((item) => item.monthDate.year === 2022)
-                        .filter((value, index, array) =>
-                            index === array.findIndex((value2) =>
-                                (value.monthDate.month === value2.monthDate.month && value.monthDate.year === value2.monthDate.year)))
-                        .map((item) => (
-                            <MDBListGroupItem key={item.id}>
-                                <input
-                                    type="checkbox"
-                                    value={item.id}
-                                    onChange={onFilterChange}
-                                />
-                                {item.monthDate.month} {item.monthDate.year}
-                            </MDBListGroupItem>
-                        ))
-                    }
-                </MDBListGroup>
-            )}
-
-            {checkedYear.checked2023 && (
-                <MDBListGroup light small>
-                    {eventsData
-                        .filter((item) => Date.parse(item.date) < Date.now())
-                        .filter((item) => item.monthDate.year === 2023)
-                        .filter((value, index, array) =>
-                            index === array.findIndex((value2) =>
-                                (value.monthDate.month === value2.monthDate.month && value.monthDate.year === value2.monthDate.year)))
-                        .map((item) => (
-                            <MDBListGroupItem key={item.id}>
-                                <input
-                                    type="checkbox"
-                                    value={item.id}
-                                    onChange={onFilterChange}
-                                />
-                                {item.monthDate.month} {item.monthDate.year}
-                            </MDBListGroupItem>
-                        ))
-                    }
-                </MDBListGroup>
-            )}
-
             <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-top">
                 <MDBRow className="row-cols-1 row-cols-md-3 g-2">
                     {eventsData.filter((item) => Date.parse(item.date) < Date.now())
                         .sort((a, b) => a.date < b.date ? 1 : -1)
                         .filter((item) => item.title.toLowerCase().indexOf(search.trim().toLowerCase()) != -1)
-
                         .filter(filterCheck)
-                        // .filter((item) => {
-                        //     if (filtered.length != 0 && filtered.some((elem) => elem.id == item.id)) {
-                        //         return item;
-                        //     } else return item;
-
-
-                        // })
-
-
-
                         .map((item) =>
                         (<div key={item.id}>
                             <CardEvent {...item}></CardEvent>
-                            <Link to={`/event/${item.id}`}>
-                                <p style={{ color: "#606080" }}>Read More...</p>
-                            </Link>
+                            <MDBBtn
+                                style={{ backgroundColor: "#606080" }} href={`/event/${item.id}`}
+                            >
+                                Read More...</MDBBtn>
                         </div>
                         ))}
                 </MDBRow>

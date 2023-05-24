@@ -1,4 +1,4 @@
-/* .App {
+.App {
   text-align: center;
 }
 
@@ -36,7 +36,7 @@
   to {
     transform: rotate(360deg);
   }
-} */
+}
 
 body,
 html {
@@ -46,10 +46,28 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+header {
+  font-family: "Wix";
+  background: rgb(239, 240, 244);
+  background: radial-gradient(circle, rgba(239, 240, 244, 1) 0%, rgba(66, 68, 131, 1) 100%);
+}
+
 h2 {
   color: #606080;
   text-align: center;
-  padding: 30px;
   font-family: "Wix";
+  padding: 30px;
 }
 
+h3,
+h4 {
+  color: #606080;
+  text-align: center;
+  font-family: "Wix";
+  font-style: italic;
+}
+
+h5 {
+  color: #101254;
+  font-size: 24px;
+}

@@ -73,13 +73,15 @@ const Rating = () => {
 
     return (
         <>
-            <MDBBtn style={{ backgroundColor: "#606080" }}
-                disabled={ratingDone}
-                onClick={toggleShow}
-                tabIndex='-1'
-            >
-                Did you go to this event? Rate it!
-            </MDBBtn>
+            <div style={{ margin: "45px", textAlign: "center" }}>
+                <MDBBtn style={{ backgroundColor: "#606080", width: "40%", padding: "15px" }}
+                    disabled={ratingDone}
+                    onClick={toggleShow}
+                    tabIndex='-1'
+                >
+                    Did you go to this event? Rate it!
+                </MDBBtn>
+            </div>
             <MDBModal show={rateModal} setShow={setRateModal} tabIndex='-1'>
                 <MDBModalDialog>
                     <MDBModalContent>
@@ -97,7 +99,7 @@ const Rating = () => {
                                 onChange={onRatingChange}
                             />
                             <MDBRadio
-                            class="form-check-input"
+                                class="form-check-input"
                                 label="Boring -.-"
                                 value={2}
                                 name="rating"
@@ -136,7 +138,13 @@ const Rating = () => {
                     </MDBModalContent>
                 </MDBModalDialog>
             </MDBModal>
-            <h5>Most guests rated this event as : {maxRating}</h5>
+            <h5 style={{ marginTop: "20px", textAlign: "center" }}
+            >Most guests rated this event as :
+            </h5>
+            <h4 style={{ width: "40%", margin: "auto", padding: "10px", border: "1px solid #e2e2f1", borderRadius: "15px" }}
+            >{maxRating}
+            </h4>
+
         </>
     );
 };

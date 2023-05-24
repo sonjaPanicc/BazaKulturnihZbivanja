@@ -22,17 +22,17 @@ const CardEvent = ({ id, title, titleImg, date, desc, upToVote }) => {
 
   const dispatch = useDispatch();
 
-  const selectEvent = (e, id) => {
+  const selectEvent = (e, id, title) => {
 
     e.preventDefault();
-    dispatch(setEventId({ eventId: id }));
+    dispatch(setEventId({ eventId: id, title: title }));
   }
 
   return (
 
     <MDBCardGroup className="hover-shadow hover-zoom"
       style={{
-        margin: "2%",
+        margin: "3%",
       }}
     >
       <MDBCard className="h-100 mt-2 d-sm-flex hover-shadow hover-zoom" style={{ backgroundColor: "#d4d4da" }}>
@@ -51,7 +51,7 @@ const CardEvent = ({ id, title, titleImg, date, desc, upToVote }) => {
         </MDBCardBody>
         {upToVote && (
           <MDBBtn style={{ backgroundColor: "#606080" }}
-            onClick={(e) => selectEvent(e, id)}>
+            onClick={(e) => selectEvent(e, id, title)}>
             Vote for {title}
           </MDBBtn>
         )}

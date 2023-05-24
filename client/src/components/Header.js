@@ -26,12 +26,16 @@ const Header = () => {
     const { user } = useSelector((state) => ({ ...state.auth }));
 
     return (
-        <header style={{ fontFamily: "Wix" }}>
+        <header>
             <MDBNavbar sticky expand="lg">
                 <MDBContainer fluid>
                     <MDBNavbarBrand
                         href="/"
-                        style={{ color: "#606080", fontWeight: "600", fontSize: "32px" }}
+                        style={{
+                            fontWeight: "900",
+                            fontSize: "32px",
+                            color: "#101254",
+                        }}
                     >
                         BAZA KULTURNIH ZBIVANJA
                     </MDBNavbarBrand>
@@ -40,35 +44,39 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toogle navigation"
                         onClick={() => setShowNavbar(!showNavbar)}
-                        style={{ color: "#606080" }}
+                        style={{ color: "#101254" }}
                     >
                         <MDBIcon icon="bars" fas />
                     </MDBNavbarToggler>
                     <MDBCollapse show={showNavbar} navbar>
-                        <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0" style={{ color: "#606080" }}>
+                        <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0">
                             {user?.result?._id && (
-                                <h5 style={{ marginRight: "30px", marginTop: "17px" }}>
+                                <h5 style={{ marginRight: "50px", marginTop: "20px", fontStyle: "italic" }}>
                                     Logged in as: {user?.result?.name}
                                 </h5>
                             )}
                             <MDBNavbarItem>
-                                <MDBNavbarLink href="/" style={{ color: "#606080" }}>
-                                    <p className="header-text">Home</p>
+                                <MDBNavbarLink href="/">
+                                    <h5 style={{ marginRight: "20px", marginTop: "10px" }}>
+                                        Home
+                                    </h5>
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
 
                             {user?.result?._id ? (
                                 <MDBNavbarItem>
-                                    <MDBNavbarLink href="/login" style={{ color: "#606080" }}>
-                                        <p className="header-text" onClick={() => handleLogout()}>
+                                    <MDBNavbarLink href="/login">
+                                        <h5 style={{ marginRight: "20px", marginTop: "10px" }} onClick={handleLogout}>
                                             Logout
-                                        </p>
+                                        </h5>
                                     </MDBNavbarLink>
                                 </MDBNavbarItem>
                             ) : (
                                 <MDBNavbarItem>
                                     <MDBNavbarLink href="/login">
-                                        <p className="header-text">Login</p>
+                                        <h5 style={{ marginRight: "20px", marginTop: "10px" }}>
+                                            Login
+                                        </h5>
                                     </MDBNavbarLink>
                                 </MDBNavbarItem>
                             )}
@@ -78,9 +86,9 @@ const Header = () => {
             </MDBNavbar>
             <div
                 className='p-5 bg-image'
-                style={{ width: "100%", margin: "auto", backgroundImage: `url(${logo})`, height: '400px' }}
+                style={{ width: "500px", margin: "auto", backgroundImage: `url(${logo})`, height: "40vh" }}
             >
-                <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
+                <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.1)' }}>
                 </div>
             </div>
         </header>

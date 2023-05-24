@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
     MDBBtn,
     MDBCol,
@@ -6,7 +6,7 @@ import {
     MDBRow,
     MDBSpinner,
 } from "mdb-react-ui-kit";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { sendVote } from "../redux/features/postsSlice";
@@ -49,11 +49,10 @@ const Vote = () => {
                 fontFamily: "Wix",
             }}
         >
-
             <h2>Vote for the next upcoming event!</h2>
 
-            <MDBContainer>
-                <MDBRow className="row-cols-1 row-cols-md-3 g-2">
+            <MDBContainer style={{ width: "80%" }} className="d-flex-col justify-content-center justify-content-lg-between">
+                <MDBRow className="row-cols-1 row-cols-md-2 g-2">
                     {eventsData.filter((item) => Date.parse(item.date) >= Date.now())
                         .filter((item) => item.upToVote)
                         .map((item) =>
@@ -62,7 +61,7 @@ const Vote = () => {
                         </div>
                         ))}
                 </MDBRow>
-                <MDBBtn style={{ backgroundColor: "#606080" }}
+                <MDBBtn style={{ backgroundColor: "#85859c", width: "100%", marginTop: "35px", padding: "15px" }}
                     onClick={submitVote}>
                     {loading && (
                         <MDBSpinner
@@ -72,19 +71,20 @@ const Vote = () => {
                             className="me-2"
                         />
                     )}
-                    Submit your vote for {eventId.eventId}
+                    Submit your vote for {eventId.title}
                 </MDBBtn>
 
-                <h3>Current votes: </h3>
-                <MDBContainer>
+                <h3 style={{ marginTop: "50px", marginBottom: "30px" }}>
+                    Current votes:
+                </h3>
+                <MDBContainer style={{ width: "60%" }} className="hover-shadow hover-zoom">
                     {votes.filter((item) => (item.voteCount))
                         .map((item) => (
-                            <MDBRow key={item._id} className="row-cols-1 row-cols-md-3 g-2">
-                                <MDBCol>{eventsData
-                                    .find((element) => element.id == item.eventId).title
-                                }
+                            <MDBRow key={item._id} style={{ border: "1px solid #606080" }}>
+                                <MDBCol style={{ textAlign: "center" }}>
+                                    {eventsData.find((element) => element.id == item.eventId).title}
                                 </MDBCol>
-                                <MDBCol>{item.voteCount}</MDBCol>
+                                <MDBCol style={{ textAlign: "center" }}>{item.voteCount}</MDBCol>
                             </MDBRow>
                         ))}
                 </MDBContainer>

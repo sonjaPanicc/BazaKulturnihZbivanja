@@ -10,6 +10,7 @@ import {
 const Footer = () => {
 
     return (
+        
         <div style={{ fontFamily: "Wix" }}>
             <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
                 <section className='d-flex justify-content-center p-4 border-bottom'>
