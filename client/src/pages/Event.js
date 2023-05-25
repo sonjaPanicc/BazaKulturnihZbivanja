@@ -69,14 +69,16 @@ const Event = () => {
                     marginTop: "20px",
                     width: "70%",
                 }}>
-                <figure className='figure'>
-                    <img
-                        src={`/images/title/img_${id}.jpg`}
-                        className='figure-img img-fluid rounded shadow-3 mb-3'
-                        style={{ height: "650px" }}
-                        alt='...'
-                    />
-                </figure>
+                <div style={{ textAlign: "center", }}>
+                    <figure className='figure'>
+                        <img
+                            src={`/images/title/img_${id}.jpg`}
+                            className='figure-img img-fluid rounded shadow-3 mb-3'
+                            style={{ height: "650px" }}
+                            alt='...'
+                        />
+                    </figure>
+                </div>
                 <MDBCard>
                     <MDBCardBody>
                         <MDBCardTitle className="text-start">{event.title}</MDBCardTitle>

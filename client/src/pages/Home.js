@@ -15,10 +15,13 @@ import eventsData from "../data/eventsData";
 import CardEvent from "../components/CardEvent";
 import radnoVreme from "../radnoVreme.jpg";
 import BackToTopBtn from "../components/BackToTopBtn";
+import UpcomingEvents from "../components/UpcomingEvents";
 
 const Home = () => {
 
     const { user } = useSelector((state) => ({ ...state.auth }));
+
+    //past events
 
     const [search, setSearch] = useState("");
     const [filtered, setFiltered] = useState([]);
@@ -72,9 +75,6 @@ const Home = () => {
         }
     };
 
-    console.log(eventsData.filter(filterCheck));
-    console.log(filtered);
-
     return (
 
         <div
@@ -87,29 +87,26 @@ const Home = () => {
         >
             <h3>Dobro nam došli !</h3>
             <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-top">
-                <MDBCol>
-                    <img src={radnoVreme} style={{ height: "300px" }} alt=""></img>
-                </MDBCol>
-                <MDBCol>
-                    <p>Baza Kulturnih zbivanja pruža multidisciplinarna iskustva, ima za cilj da spoji različite vidove umetnosti na jednom mestu.</p>
-                    <p>Ovaj prostor pokrenulo je četvoro prijatelja, Ana Veliki, Matija Maksimović, Dino Rastoder i Igor Zbodulja,
-                        koji dolaze iz potpuno različitih sfera, što upravo objašnjava i raznoliki sadržaj koji ovo mesto ima da ponudi, od izložbi,
-                        preko žurki, dok trentutno rade na razvoju novih ideja</p>
-                    <p>„Hteli smo da napravimo bazu u kojoj ćemo da se okupljamo svi zajedno.
-                        Neki kreativni community, koji će pružiti mogućnost da se svako ko dođe oseća udobno, sigurno,
-                        da razvija ideje i razmišlja kritički. Zato je ta reč baza poprilično jaka i simbolična.</p>
-                </MDBCol>
+                <MDBRow className="row-cols-1 row-cols-md-2 g-5">
+                    <MDBCol style={{ textAlign: "center" }}>
+                        <a href="https://www.facebook.com/bazakulturnihzbivanja/photos/a.124117120513475/168302819428238/" target="_blank" rel="noopener noreferrer">
+                            <img src={radnoVreme} style={{ height: "300px" }} alt=""></img>
+                        </a>
+                    </MDBCol>
+                    <MDBCol>
+                        <p>Baza Kulturnih zbivanja pruža multidisciplinarna iskustva, ima za cilj da spoji različite vidove umetnosti na jednom mestu.</p>
+                        <p>Ovaj prostor pokrenulo je četvoro prijatelja, Ana Veliki, Matija Maksimović, Dino Rastoder i Igor Zbodulja,
+                            koji dolaze iz potpuno različitih sfera, što upravo objašnjava i raznoliki sadržaj koji ovo mesto ima da ponudi, od izložbi,
+                            preko žurki, dok trentutno rade na razvoju novih ideja</p>
+                        <p>„Hteli smo da napravimo bazu u kojoj ćemo da se okupljamo svi zajedno.
+                            Neki kreativni community, koji će pružiti mogućnost da se svako ko dođe oseća udobno, sigurno,
+                            da razvija ideje i razmišlja kritički. Zato je ta reč baza poprilično jaka i simbolična.</p>
+                    </MDBCol>
+                </MDBRow>
             </MDBContainer>
 
             <h2>Upcoming events</h2>
-            <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom border-top">
-                <MDBRow className="row-cols-1 row-cols-md-3 g-2">
-                    {eventsData.filter((item) => Date.parse(item.date) >= Date.now())
-                        .filter((item) => !item.upToVote)
-                        .sort((a, b) => a.date > b.date ? 1 : -1)
-                        .map((item) => (<CardEvent key={item.id} {...item}></CardEvent>))}
-                </MDBRow>
-            </MDBContainer>
+            <UpcomingEvents></UpcomingEvents>
 
             <MDBContainer className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                 <MDBCol className="row-cols-1 row-cols-md-1 g-2">
@@ -127,7 +124,7 @@ const Home = () => {
 
             <h2>Past events</h2>
             <MDBContainer className="d-flex justify-content-around">
-                <div className="d-flex">
+                <div className="d-flex" style={{ height: "45px" }}>
                     <MDBInput
                         label="Search"
                         type="search"
